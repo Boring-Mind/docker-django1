@@ -16,6 +16,7 @@ COPY . /usr/src/app
 
 EXPOSE 8000
 
+# Security needs - run container under it's own user, not a root
 RUN useradd --create-home appuser
 USER appuser
 
