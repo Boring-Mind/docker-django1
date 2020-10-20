@@ -16,4 +16,7 @@ COPY . /usr/src/app
 
 EXPOSE 8000
 
+RUN useradd --create-home appuser
+USER appuser
+
 ENTRYPOINT ["sh", "entrypoint.sh"]
