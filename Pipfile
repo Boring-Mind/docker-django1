@@ -10,6 +10,7 @@ django = "<4.0"
 wheel = "*"
 pipfile = "*"
 python-decouple = {version = ">=3.3,<4.0"}
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"

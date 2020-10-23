@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  django:
+    build: 
+      context: .
+    ports:
+      - "9090:9090"
+    networks:
+      subnet-web-ngd:
+        ipv4_address: 172.18.0.14
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    ports:
+      - "8000:8000"
+    networks:
+      subnet-web-ngd:
+        ipv4_address: 172.18.0.15
+networks:
+  subnet-web-ngd:
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
