@@ -1,3 +1,5 @@
+# BEST PRACTICE: run this image in rootless mode (get.docker.com/rootless)
+
 # slim buster is 8 times smaller image of the python 3.8
 FROM python:3.8-slim-buster
 
@@ -13,10 +15,5 @@ RUN pipenv install --system --deploy
 CMD pipenv shell
 
 COPY . /usr/src/app
-
-# Security needs - run container under it's own user, not a root
-# Fix an issue where users cannot migrate
-RUN useradd --create-home appuser
-USER appuser
 
 ENTRYPOINT ["sh", "entrypoint.sh"]
