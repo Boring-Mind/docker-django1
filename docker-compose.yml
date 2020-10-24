@@ -3,11 +3,8 @@ services:
   django:
     build: 
       context: .
-    ports:
-      - "9090:9090"
     networks:
-      subnet-web-ngd:
-        ipv4_address: 172.18.0.14
+      - subnet-web-ngd
   nginx:
     build:
       context: .
@@ -15,8 +12,7 @@ services:
     ports:
       - "8000:8000"
     networks:
-      subnet-web-ngd:
-        ipv4_address: 172.18.0.15
+      - subnet-web-ngd
 networks:
   subnet-web-ngd:
     ipam:

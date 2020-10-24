@@ -14,8 +14,6 @@ CMD pipenv shell
 
 COPY . /usr/src/app
 
-EXPOSE 8000
-
 # Security needs - run container under it's own user, not a root
 # Fix an issue where users cannot migrate
 RUN useradd --create-home appuser
